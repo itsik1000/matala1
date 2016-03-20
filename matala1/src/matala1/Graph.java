@@ -93,9 +93,16 @@ public class Graph
 
 		Vector<Integer> blackList = new Vector<>();
 
+		long startTime = System.currentTimeMillis();
+		
 		readGraph("C:\\Users\\Ori\\Desktop\\largeEWD.txt");
 		waze("C:\\Users\\Ori\\Desktop\\test3.txt", "C:\\Users\\Ori\\Desktop\\ans3large.txt");
 
+		long endTime = System.currentTimeMillis();
+		
+		long rumTime = endTime-startTime;
+		System.out.println(rumTime);
+		
 //		double ans= graph.BellmanFord(0, blackList, 3);
 		//     System.out.println(ans);
 	}
