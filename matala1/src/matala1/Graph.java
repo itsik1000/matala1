@@ -20,7 +20,7 @@ public class Graph
 		}
 	};
 
-	static int V;
+	static int V; // amount of vertex(nodes)
 	static int E;
 	Edge edge[];
 	static Vector<Integer> blackList;
@@ -65,7 +65,7 @@ public class Graph
 				int u = graph.edge[j].src;
 				int v = graph.edge[j].dest;
 				double weight = graph.edge[j].weight;
-				if (dist[u]!=Double.POSITIVE_INFINITY &&
+				if (!Double.isInfinite(dist[u])&&
 						dist[u]+weight<dist[v] && !blackList.contains(v) && !blackList.contains(u))
 					dist[v]=dist[u]+weight;
 			}
@@ -93,8 +93,8 @@ public class Graph
 
 		Vector<Integer> blackList = new Vector<>();
 
-		readGraph("C:\\Users\\Ori\\Desktop\\mediumEWD.txt");
-		waze("C:\\Users\\Ori\\Desktop\\test2.txt", "C:\\Users\\Ori\\Desktop\\ans2.txt");
+		readGraph("C:\\Users\\Ori\\Desktop\\largeEWD.txt");
+		waze("C:\\Users\\Ori\\Desktop\\test3.txt", "C:\\Users\\Ori\\Desktop\\ans3large.txt");
 
 //		double ans= graph.BellmanFord(0, blackList, 3);
 		//     System.out.println(ans);
@@ -131,12 +131,12 @@ public class Graph
 				int numberOfBlacked = Integer.parseInt((String) help
 						.nextElement());
 				Vector<Integer> blacked = new Vector<Integer>(numberOfBlacked);
-				// blacked =
+				
 				for (int j = 0; j < numberOfBlacked; j++) {
 					blacked.add(Integer.parseInt((String) help.nextElement()));
 				}
 				
-				ans += " "+graph.BellmanFord(start, blackList, end)+"\n";
+				ans += " "+graph.BellmanFord(start, blacked, end)+"\n";
 				bw.write(ans);
 			}
 			bw.close();
