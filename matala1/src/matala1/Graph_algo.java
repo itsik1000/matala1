@@ -2,10 +2,12 @@ package matala1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 //import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
 import java.util.Vector;
@@ -21,12 +23,27 @@ public class Graph_algo {
 	private String TheAnsFile;
 
 	public Graph_algo(String theGraphFile, String ThePathAndBlockedFile) {
+//		FileWriter fw;
+//		try {
+//			fw = new FileWriter("check1234.txt");
+//			BufferedWriter bw = new BufferedWriter(fw);
+//			bw.write("blabla");
+//			bw.close();
+//			fw.close();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+		
 		this.ThePathAndBlockedFile = ThePathAndBlockedFile;
 		this.theGraphFile = theGraphFile;
 		TheAnsFile = "ans.txt";
 		readGraph();
 		makeFirstGraph();
 		TheQuation();
+		for(int i=0; i<graph.length; i++)
+			System.out.println(Arrays.toString(graph[i]));
 	}
 
 	public Vector<Integer> thePath(int start, int end) {
@@ -42,7 +59,7 @@ public class Graph_algo {
 
 	public double distance(int start, int end, Vector<Integer> blackList) {
 		// if in the original graph there no connection.
-		if (graphFirst[start][end] == Double.POSITIVE_INFINITY)
+		if (Double.isInfinite(graphFirst[start][end]))
 			return Double.POSITIVE_INFINITY;
 		double[][] currentGraph = graph.clone();
 		// we mark all the blocked Nodes by: =Double.POSITIVE_INFINITY
@@ -85,7 +102,7 @@ public class Graph_algo {
 			// }
 			// כתיבת כמות הבדיקות
 			int numberChecks = Integer.parseInt(br.readLine());
-			bw.write(numberChecks);
+			bw.write(numberChecks+ "\n");
 
 			for (long i = 0; i < numberChecks; i++) {
 				String ans = "";
@@ -96,12 +113,16 @@ public class Graph_algo {
 				int second = Integer.parseInt((String) help.nextElement());
 				int numberOfBlacked = Integer.parseInt((String) help
 						.nextElement());
-				Vector<Integer> blacked = new Vector<Integer>(numberOfBlacked);
+				Vector<Integer> blacked = new Vector<Integer>(/*numberOfBlacked*/);
 				// blacked =
 				for (int j = 0; j < numberOfBlacked; j++) {
-					blacked.set(j, Integer.parseInt((String) help.nextElement()));
+					blacked.addElement(Integer.parseInt((String) help.nextElement()));
 				}
-				ans += " "+distance(first, second, blacked);
+				double p = distance(first, second, blacked);
+				if( Double.isInfinite(p))
+					ans += " inf //there no such path in the graph + black-list\n";
+				else
+					ans += " "+ p+ "\n";
 				bw.write(ans);
 			}
 			bw.close();
@@ -127,11 +148,20 @@ public class Graph_algo {
 	//
 	private void makeFirstGraph() {
 		graphFirst = graph.clone();
+		for (int i = 0; i < graphFirst.length; i++)
+			for (int j = 0; j < graphFirst.length; j++)
+			{
+				if(i!=j&&graphFirst[i][j] == 0)
+					graphFirst[i][j] = Double.POSITIVE_INFINITY;
+			}
 		for (int k = 0; k < graphFirst.length; k++)
 			for (int i = 0; i < graphFirst.length; i++)
 				for (int j = 0; j < graphFirst.length; j++)
+				{
 					graphFirst[i][j] = Math.min(graphFirst[i][k]
 							+ graphFirst[k][j], graphFirst[i][j]);
+//					if()
+				}
 		for (int i = 0; i < graphFirst.length; i++)
 			for (int j = 0; j < graphFirst.length; j++) {
 				if (i != j) {
@@ -152,7 +182,7 @@ public class Graph_algo {
 			graph = new double[numberNodes][numberNodes];
 			long numberEdges = Integer.parseInt(br.readLine());
 			// while ((str = br.readLine()) != null) {
-			int one = 1;
+//			int one = 1;
 			for (long i = 0; i < numberEdges; i = i + 1) {
 				StringTokenizer help = new StringTokenizer(br.readLine());
 				int first = Integer.parseInt((String) help.nextElement());
