@@ -1,8 +1,10 @@
 package matala1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 //import java.util.GregorianCalendar;
 import java.util.StringTokenizer;
@@ -61,6 +63,55 @@ public class Graph_algo {
 		isDirected = isDirected(graphFirst);
 	}
 
+	public void TheQuation() {
+
+		try {
+			// the readFile
+			String name = ThePathAndBlockedFile;
+			FileReader fr = null;
+			BufferedReader br = null;
+			fr = new FileReader(name);
+			br = new BufferedReader(fr);
+			// /the ansFile
+			String name2 = TheAnsFile;
+			FileWriter fw = null;
+			BufferedWriter bw = null;
+			fw = new FileWriter(name2);
+			bw = new BufferedWriter(fw);
+			// if (!name.endsWith(".txt")) {
+			// name2 = name + ".txt";
+			// }
+			// כתיבת כמות הבדיקות
+			int numberChecks = Integer.parseInt(br.readLine());
+			bw.write(numberChecks);
+
+			for (long i = 0; i < numberChecks; i++) {
+				String ans = "";
+				String s = br.readLine();
+				ans = s;
+				StringTokenizer help = new StringTokenizer(s);
+				int first = Integer.parseInt((String) help.nextElement());
+				int second = Integer.parseInt((String) help.nextElement());
+				int numberOfBlacked = Integer.parseInt((String) help
+						.nextElement());
+				Vector<Integer> blacked = new Vector<Integer>(numberOfBlacked);
+				// blacked =
+				for (int j = 0; j < numberOfBlacked; j++) {
+					blacked.set(j, Integer.parseInt((String) help.nextElement()));
+				}
+				ans += " "+distance(first, second, blacked);
+				bw.write(ans);
+			}
+			bw.close();
+			fw.close();
+			br.close();
+			fr.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	// checks if the graph is directed.
 	private boolean isDirected(double[][] g) {
 		for (int i = 0; i < g.length; i++) {
@@ -93,11 +144,11 @@ public class Graph_algo {
 			String name = theGraphFile;
 			FileReader fr = null;
 			BufferedReader br = null;
+			fr = new FileReader(name);
+			br = new BufferedReader(fr);
 			int numberNodes = Integer.parseInt(br.readLine());
 			graph = new double[numberNodes][numberNodes];
 			long numberEdges = Integer.parseInt(br.readLine());
-			fr = new FileReader(name);
-			br = new BufferedReader(fr);
 			// while ((str = br.readLine()) != null) {
 			int one = 1;
 			for (long i = 0; i < numberEdges; i = i + 1) {
@@ -117,5 +168,5 @@ public class Graph_algo {
 			e.printStackTrace();
 		}
 	}
-	
+
 }
