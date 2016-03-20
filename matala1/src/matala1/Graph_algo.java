@@ -23,8 +23,10 @@ public class Graph_algo {
 	public Graph_algo(String theGraphFile, String ThePathAndBlockedFile) {
 		this.ThePathAndBlockedFile = ThePathAndBlockedFile;
 		this.theGraphFile = theGraphFile;
+		TheAnsFile = "ans.txt";
 		readGraph();
 		makeFirstGraph();
+		TheQuation();
 	}
 
 	public Vector<Integer> thePath(int start, int end) {
