@@ -95,8 +95,8 @@ public class Graph
 
 		long startTime = System.currentTimeMillis();
 		
-		readGraph("C:\\Users\\Ori\\Desktop\\largeEWD.txt");
-		waze("C:\\Users\\Ori\\Desktop\\test3.txt", "C:\\Users\\Ori\\Desktop\\ans3large.txt");
+		readGraph("C:\\Users\\aviad\\Desktop\\tinyEWD.txt");
+		waze("C:\\Users\\aviad\\Desktop\\test1.txt", "C:\\Users\\aviad\\Desktop\\ans3large.txt");
 
 		long endTime = System.currentTimeMillis();
 		
