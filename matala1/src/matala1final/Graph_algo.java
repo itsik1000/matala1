@@ -1,4 +1,4 @@
-package graph2;
+package matala1final;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -111,7 +111,7 @@ public class Graph_algo {
 	
 	
 	public static void main(String[] args) {
-		String src = "C:\\Users\\aviad\\Desktop\\tests\\largeEWD.txt";
+		String src = "C:\\Users\\aviad\\Desktop\\tests\\mediumEWD.txt";
 		String test = "C:\\Users\\aviad\\Desktop\\tests\\test3.txt";
 		String dest = "C:\\Users\\aviad\\Desktop\\tests\\dest.txt";
 		System.out.println("start");

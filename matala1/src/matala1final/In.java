@@ -1,4 +1,4 @@
-package graph2;
+package matala1final;
 /******************************************************************************
  *  Compilation:  javac In.java
  *  Execution:    java In   (basic test --- see source for required files)

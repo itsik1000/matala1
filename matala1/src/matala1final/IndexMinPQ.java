@@ -1,4 +1,4 @@
-package graph2;
+package matala1final;
 /******************************************************************************
  *  Compilation:  javac IndexMinPQ.java
  *  Execution:    java IndexMinPQ

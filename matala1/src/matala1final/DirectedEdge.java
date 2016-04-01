@@ -1,4 +1,4 @@
-package graph2;
+package matala1final;
 /******************************************************************************
  *  Compilation:  javac DirectedEdge.java
  *  Execution:    java DirectedEdge

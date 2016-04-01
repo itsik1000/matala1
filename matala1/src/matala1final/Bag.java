@@ -1,4 +1,4 @@
-package graph2;
+package matala1final;
 /******************************************************************************
  *  Compilation:  javac Bag.java
  *  Execution:    java Bag < input.txt
