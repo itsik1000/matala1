@@ -14,7 +14,7 @@ import java.util.Vector;
 
 //import java.util.logging.Logger;
 
-public class Graph_algo {
+public class Graph_algo_First {
 	private double[][] graph;
 	private double[][] graphFirst;
 	private boolean isDirected;
@@ -22,7 +22,7 @@ public class Graph_algo {
 	private String ThePathAndBlockedFile;
 	private String TheAnsFile;
 
-	public Graph_algo(String theGraphFile, String ThePathAndBlockedFile) {
+	public Graph_algo_First(String theGraphFile, String ThePathAndBlockedFile) {
 //		FileWriter fw;
 //		try {
 //			fw = new FileWriter("check1234.txt");

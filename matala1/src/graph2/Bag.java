@@ -132,7 +132,7 @@ public class Bag<Item> implements Iterable<Item> {
     /**
      * Unit tests the <tt>Bag</tt> data type.
      */
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
         Bag<String> bag = new Bag<String>();
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
@@ -145,5 +145,5 @@ public class Bag<Item> implements Iterable<Item> {
         }
     }
 
-
+*/
 }
