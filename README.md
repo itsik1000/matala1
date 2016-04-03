@@ -11,4 +11,5 @@ While writing this code we found an open-source based on the Bellman-Ford algori
 
 Finally, we found an open-source based on Dijkstra algorithm. This algorithm was able to solve also the large graph. (class Graph_algo)
 
-We have added testers that show the quality of this algorithm.
+We have added a JUnit that checks that an output file equals precicely to the requested file (class testFiles).
+In addition, we added a generator of tests that generated files for testing (writeTests). We have genereted text files 10-29, 40-59, 80-99.
